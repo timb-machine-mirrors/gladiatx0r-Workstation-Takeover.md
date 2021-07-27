@@ -26,7 +26,7 @@ OR
 ![SpoolSample](https://user-images.githubusercontent.com/46607768/126909117-b09f50f2-f88a-48c6-9361-9237d4ecc104.png)
 
   Note for this critical step (remote machine authentication) to work;
-  - The WebClient service needs to be running on the target (192.168.38.104 in this example). It may already be started on some workstations (worth trying to see if you get lucky) but if not see the next section. **Update** [Lee Christensen has pointed out](https://twitter.com/tifkin_/status/1419806476353298442?s=20) that you can remotely enumerate this via the PowerShell command `Get-NTFile -Win32Path '\\target-ip\pipe\DAV RPC SERVICE'` which returns the named pipe if accessible. 
+  - The WebClient service needs to be running on the target (192.168.38.104 in this example). It may already be started on some workstations (worth trying to see if you get lucky) but if not see the next section. ***Update:*** [Lee Christensen has pointed out](https://twitter.com/tifkin_/status/1419806476353298442?s=20) that you can remotely enumerate this via the PowerShell command `Get-NTFile -Win32Path '\\target-ip\pipe\DAV RPC SERVICE'` which returns the named pipe if accessible. 
   - Your attacking host (`logger` in the case of my example) needs to be considered 'intranet' zoned by the target. One way to accomplish this is by using the netbios name of your attacking host (no periods). 
   - The URI syntax used above to coerce HTTP authentication (swapping in your attacking hostname).
   - LDAP signing/channel-binding must be disabled (this is the default).
